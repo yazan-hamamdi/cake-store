@@ -1,0 +1,15 @@
+.cake-container{
+    display: flex;
+    width: 80%;
+    height: 1000px;
+    background: #eeeeee;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 30%);
+    border-radius: 4px;
+    padding: 20px;
+    flex-direction: column;
+    margin: 80px auto;
+}
+
+div .banner {
+    width: 100%;
+}
