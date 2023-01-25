@@ -1,12 +1,13 @@
 div .banner {
     width: 100%;
+    margin-bottom: 15px;
 }
 
 /* .mySlides {display: block}
 
 /* Slideshow container */
 .slideshow-container {
-    max-width: 1000px;
+    max-width: 500px;
     position: relative;
     margin: auto;
 }
