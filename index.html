@@ -68,7 +68,80 @@
         <span class="dot" onclick="currentSlide(3)"></span>
     </div>
     <!-- this end slideshow-container  -->
-    <div class="cake-container"></div>
+
+
+
+    <div class="cake-container">
+        <!--
+        
+        TODO:  •add more info popup that include the information about the item
+                    -all the information stored in the database
+                •edit cart button that edd the item into cart and redirect to cart page
+                    -without payment system just add the item into cart using js I think
+        
+        -->
+        <div class="card">
+            <img src="/image/c3.webp" alt="cake">
+            <div class="cake-info">
+                <h3>Chocolate Cake</h3>
+                <p>Rs. 500</p>
+
+            </div>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="/image/c3.webp" alt="cake">
+            <div class="cake-info">
+                <h3>Chocolate Cake</h3>
+                <p>Rs. 500</p>
+
+            </div>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="/image/c3.webp" alt="cake">
+            <div class="cake-info">
+                <h3>Chocolate Cake</h3>
+                <p>Rs. 500</p>
+
+            </div>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="/image/c3.webp" alt="cake">
+            <div class="cake-info">
+                <h3>Chocolate Cake</h3>
+                <p>Rs. 500</p>
+
+            </div>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="/image/c3.webp" alt="cake">
+            <div class="cake-info">
+                <h3>Chocolate Cake</h3>
+                <p>Rs. 500</p>
+            </div>
+            <button>Add to Cart</button>
+        </div>
+
+
+    </div>
+
+
+
+
+        <div class="go-up display-none" onclick="scrollToTop()">
+            <i class="fas fa-chevron-up h4 pt-2"></i>
+        </div>
+    
+
+
+
     <!-- slideshow-container script -->
     <script>
         let slideIndex = 1;
@@ -97,6 +170,37 @@
             slides[slideIndex - 1].style.display = "block";
             dots[slideIndex - 1].className += " active";
         }
+
+
+
+
+        var myNav = document.getElementsByClassName("nav")[0];
+        var goUp = document.getElementsByClassName("go-up")[0];
+        window.onscroll = function () {
+            if (document.body.scrollTop >= 200 || document.documentElement.scrollTop >= 200 ) {
+                myNav.classList.add("fixed");
+                myNav.classList.remove("static");
+                goUp.classList.add ("display-block") ;
+                goUp.classList.remove ("display-none") ;
+
+
+            }
+            else {
+                
+                myNav.classList.add("static");
+                myNav.classList.remove("fixed");
+                goUp.classList.add  ("display-none") ;
+                goUp.classList.remove ("display-block") ;
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
     </script>
 
 </body>

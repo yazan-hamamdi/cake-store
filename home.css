@@ -73,13 +73,90 @@ div .banner {
 
 .cake-container{
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:25px;
     width: 80%;
     background: #eeeeee;
     box-shadow: 0 2px 4px rgb(0 0 0 / 30%);
     border-radius: 4px;
     padding: 20px;
-    flex-direction: column;
     margin: 80px auto;
 } 
+
+.cake-container .card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding:15px;
+    box-shadow: 1px -1px 33px -11px rgba(0,0,0,1);
+}
+
+.cake-container .card img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.cake-container .card button
+{
+    background: #f9a826;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.cake-container .card .cake-info{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+
+.cake-container .card img:hover + .cake-info{
+    display: flex;
+}
+
+.cake-container .cake-info:hover{
+    display: flex;
+} 
+
+.go-up {
+    position: fixed;
+    bottom: 3%;
+    right: 3%;
+    font-size: 20px;
+    background-color: #4a4953;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 20%;
+}
+
+.go-up:hover {
+    background-color: #5a6268;
+}
+
+.display-none {
+    display: none;
+
+}
+
+.display-block {
+    display: block;
+}
+
+
+
 
 
