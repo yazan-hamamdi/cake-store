@@ -22,9 +22,32 @@
             <label for="search-bar" class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></label>
         </div>
         <span class="cart">
-            <i class="fa-solid fa-cart-shopping"></i>
+            <i class="fa-solid fa-cart-shopping"><span class="counter">0</span></i>
             <b>Cart</b>
         </span>
+        <div class="cart-list display-none">
+            <div class="items">
+                <div class="item">
+                    <div class="item-info">
+
+                    </div>
+                    <input class="item-quantity" type="number" min="0">
+                    <button class="remove">Remove</button>
+                </div>
+
+                <div class="item">
+                    <div class="item-info">
+
+                    </div>
+                    <input class="item-quantity" type="number" min="0">
+                    <button class="remove">Remove</button>
+                </div>
+
+                <div class="total">
+                    $55
+                </div>
+            </div>
+        </div>
         <span class="account">
             <i class="fa-solid fa-user-circle"></i>
             <b>Account</b>
@@ -84,61 +107,60 @@
             <img src="/image/c3.webp" alt="cake">
             <div class="cake-info">
                 <h3>Chocolate Cake</h3>
-                <p>Rs. 500</p>
+
 
             </div>
-            <button>Add to Cart</button>
+            <p>$500</p>
+            <button class="addToCart">Add to Cart</button>
         </div>
 
         <div class="card">
             <img src="/image/c3.webp" alt="cake">
             <div class="cake-info">
                 <h3>Chocolate Cake</h3>
-                <p>Rs. 500</p>
+
 
             </div>
-            <button>Add to Cart</button>
+            <p>$500</p>
+            <button class="addToCart">Add to Cart</button>
         </div>
 
         <div class="card">
             <img src="/image/c3.webp" alt="cake">
             <div class="cake-info">
                 <h3>Chocolate Cake</h3>
-                <p>Rs. 500</p>
-
             </div>
-            <button>Add to Cart</button>
+            <p>$500</p>
+            <button class="addToCart">Add to Cart</button>
         </div>
 
         <div class="card">
             <img src="/image/c3.webp" alt="cake">
             <div class="cake-info">
                 <h3>Chocolate Cake</h3>
-                <p>Rs. 500</p>
-
             </div>
-            <button>Add to Cart</button>
+            <p>$500</p>
+            <button class="addToCart">Add to Cart</button>
         </div>
 
         <div class="card">
             <img src="/image/c3.webp" alt="cake">
             <div class="cake-info">
                 <h3>Chocolate Cake</h3>
-                <p>Rs. 500</p>
             </div>
-            <button>Add to Cart</button>
+            <p>$500</p>
+            <button class="addToCart">Add to Cart</button>
         </div>
-
 
     </div>
 
 
 
 
-        <div class="go-up display-none" onclick="scrollToTop()">
-            <i class="fas fa-chevron-up h4 pt-2"></i>
-        </div>
-    
+    <div class="go-up display-none" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up h4 pt-2"></i>
+    </div>
+
 
 
 
@@ -177,20 +199,20 @@
         var myNav = document.getElementsByClassName("nav")[0];
         var goUp = document.getElementsByClassName("go-up")[0];
         window.onscroll = function () {
-            if (document.body.scrollTop >= 200 || document.documentElement.scrollTop >= 200 ) {
+            if (document.body.scrollTop >= 200 || document.documentElement.scrollTop >= 200) {
                 myNav.classList.add("fixed");
                 myNav.classList.remove("static");
-                goUp.classList.add ("display-block") ;
-                goUp.classList.remove ("display-none") ;
+                goUp.classList.add("display-block");
+                goUp.classList.remove("display-none");
 
 
             }
             else {
-                
+
                 myNav.classList.add("static");
                 myNav.classList.remove("fixed");
-                goUp.classList.add  ("display-none") ;
-                goUp.classList.remove ("display-block") ;
+                goUp.classList.add("display-none");
+                goUp.classList.remove("display-block");
             }
         };
 
@@ -200,6 +222,41 @@
                 behavior: 'smooth'
             });
         }
+
+
+        var buttons = document.getElementsByClassName("addToCart");
+        for (let i = 0; i < buttons.length; i++) {
+            let button = buttons[i];
+            button.addEventListener("click", function () {
+                document.getElementsByClassName("counter")[0].innerHTML = parseInt(document.getElementsByClassName("counter")[0].innerHTML) + 1;
+                var cartList = document.getElementsByClassName("cart-list")[0];
+                cartList.classList.add("display-block");
+                cartList.classList.remove("display-none");
+                // var cartItem = document.createElement("div");
+                // cartItem.classList.add("cart-item");
+                // cartList.appendChild(cartItem);
+                
+            })
+        }
+
+        var Cart = document.getElementsByClassName("cart")[0];
+        Cart.addEventListener("click", function () {
+            var element = document.getElementsByClassName("cart-list")[0];
+            if (element.classList.contains("display-none")) {
+                element.classList.remove("display-none");
+                element.classList.add("display-block");
+            }
+            else {
+                element.classList.add("display-none");
+                element.classList.remove("display-block");
+            }
+        })
+
+
+
+
+
+
 
     </script>
 
