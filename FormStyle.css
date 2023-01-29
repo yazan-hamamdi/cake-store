@@ -1,0 +1,105 @@
+html {
+    height: 100%;
+    /*Image only BG fallback*/
+    
+    /*background = gradient + image pattern combo*/
+    background: 
+    linear-gradient(rgba(235, 149, 56, 0.6), rgba(232, 109, 52, 0.6));
+}
+
+body {
+        font-family: montserrat, arial, verdana;
+}
+
+    /*form styles*/
+#msform {
+    width: 1000px;
+    margin: 50px auto;
+    text-align: center;
+    display: flex;
+}
+
+#msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 3px;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.4);
+    padding: 20px 30px;
+    box-sizing: border-box;
+    width: 80%;
+    margin: 0 10%;
+    
+    /*stacking fieldsets above each other*/
+}
+    /*Hide all except first fieldset*/
+    #msform input, #msform textarea {
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        margin-bottom: 10px;
+        width: 100%;
+        box-sizing: border-box;
+        font-family: montserrat;
+        
+    }
+
+    .fs-title {
+        font-size: 15px;
+        text-transform: uppercase;
+        color: #ED8A3E;
+        margin-bottom: 10px;
+    }
+
+    .fs-subtitle {
+        font-weight: normal;
+        font-size: 13px;
+        color:  #ED8A3E;
+        margin-bottom: 20px;
+    }
+
+    .submit{
+        background-color: #63E816;
+        color: white;
+        font-size: 20px;
+
+    }
+
+    .Twitter{
+        background-color: #1da1f3;
+        color: white;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .Facebook{
+        background-color:#0b5aa7;
+        color: white;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .Gplus{
+        background-color: #dc4a38;
+        color: white;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .bar{
+        width: 4px;
+        height: 350px;
+        background-color:white;
+    }
+
+    div span{
+        text-align: center;
+        position: relative;
+        top:50%;
+        right: 15px;
+        border: 2px white solid;
+        border-radius: 10px;
+        background-color: #f2b787;
+        padding: 5px;
+    }
+
+
