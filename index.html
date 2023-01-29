@@ -15,7 +15,7 @@
 <body>
     <!-- start nav  -->
     <div class="nav">
-        Ch<span class=" brown">o</span><img src="image/logo1.png"><span class="brown">o</span>late
+        Ch<span class=" brown">o</span><img src="/image/logo1.png"><span class="brown">o</span>late
         <span class="line"></span>
         <div class="search">
             <input id="search-bar" name="search-bar" type="search" placeholder="Search flowers, cakes, gifts, etc.">
@@ -26,27 +26,19 @@
             <b>Cart</b>
         </span>
         <div class="cart-list display-none">
-            <div class="items">
-                <div class="item">
-                    <div class="item-info">
+            <form method="" action="" id="cartForm">
+                <div class="items">
 
+                    <div class="total">
+                        total = <span class="total-result"></span>
                     </div>
-                    <input class="item-quantity" type="number" min="0">
-                    <button class="remove">Remove</button>
-                </div>
-
-                <div class="item">
-                    <div class="item-info">
-
+                    <input type="text" class="place-of-delivery" placeholder="Place of delivery" name="placeOfDelivery"
+                        required>
+                    <div class="checkout">
+                        <button class="checkout-btn">Checkout</button>
                     </div>
-                    <input class="item-quantity" type="number" min="0">
-                    <button class="remove">Remove</button>
                 </div>
-
-                <div class="total">
-                    $55
-                </div>
-            </div>
+            </form>
         </div>
         <span class="account">
             <i class="fa-solid fa-user-circle"></i>
@@ -65,23 +57,43 @@
 
 
 
-    <div class="slideshow-container">
+    <div class="slideshow-container ">
 
-        <div class="mySlides fade">
-            <img src="/image/c1.webp " style="width:100%">
+        <div class="mySlides fade ">
+            <div class="card">
+                <img src="/image/c1.webp ">
+            </div>
+            <div class="card">
+                <img src="/image/c1.webp ">
+            </div>
+            <div class="card">
+                <img src="/image/c1.webp ">
+            </div>
         </div>
 
         <div class="mySlides fade">
-            <img src="/image/c2.webp  " style="width:100%">
+            <div class="card">
+                <img src="/image/c2.webp  ">
+            </div>
+            <div class="card">
+                <img src="/image/c2.webp  ">
+            </div>
+            <div class="card">
+                <img src="/image/c2.webp  ">
+            </div>
         </div>
 
         <div class="mySlides fade">
-            <img src="/image/c3.webp  " style="width:100%">
+            <div class="card">
+                <img src="/image/c3.webp  ">
+            </div>
+            <div class="card">
+                <img src="/image/c3.webp  ">
+            </div>
+            <div class="card">
+                <img src="/image/c3.webp  ">
+            </div>
         </div>
-
-        <a class="prev" onclick="plusSlides(-1)">❮</a>
-        <a class="next" onclick="plusSlides(1)">❯</a>
-
     </div>
     <br>
 
@@ -95,14 +107,6 @@
 
 
     <div class="cake-container">
-        <!--
-        
-        TODO:  •add more info popup that include the information about the item
-                    -all the information stored in the database
-                •edit cart button that edd the item into cart and redirect to cart page
-                    -without payment system just add the item into cart using js I think
-        
-        -->
         <div class="card">
             <img src="/image/c3.webp" alt="cake">
             <div class="cake-info">
@@ -126,7 +130,7 @@
         </div>
 
         <div class="card">
-            <img src="/image/c3.webp" alt="cake">
+            <img src="/image/c6.webp" alt="cake">
             <div class="cake-info">
                 <h3>Chocolate Cake</h3>
             </div>
@@ -148,7 +152,7 @@
             <div class="cake-info">
                 <h3>Chocolate Cake</h3>
             </div>
-            <p>$500</p>
+            <p>$311</p>
             <button class="addToCart">Add to Cart</button>
         </div>
 
@@ -164,8 +168,21 @@
 
 
 
-    <!-- slideshow-container script -->
+    <footer>
+        <p>
+            <span class="brown big-size">&copy;</span>2023 WEB DEVELOPMENT I Course
+            <br>
+            Lecturer: Dr. Rafat Amarneh
+            <br>
+            Made With <i class="fas fa-heart"></i> by <a href="AboutUs" class="my-team">My <span
+                    class="small-minus-margin">Team</span></a>
+        </p>
+    </footer>
+
+
+
     <script>
+        //  slideshow-container script 
         let slideIndex = 1;
         showSlides(slideIndex);
 
@@ -189,13 +206,13 @@
             for (i = 0; i < dots.length; i++) {
                 dots[i].className = dots[i].className.replace(" active", "");
             }
-            slides[slideIndex - 1].style.display = "block";
+            slides[slideIndex - 1].style.display = "flex";
             dots[slideIndex - 1].className += " active";
         }
+        //  end slideshow-container script 
 
 
-
-
+        //  go-up and navbar show and hide when scroll script
         var myNav = document.getElementsByClassName("nav")[0];
         var goUp = document.getElementsByClassName("go-up")[0];
         window.onscroll = function () {
@@ -204,11 +221,8 @@
                 myNav.classList.remove("static");
                 goUp.classList.add("display-block");
                 goUp.classList.remove("display-none");
-
-
             }
             else {
-
                 myNav.classList.add("static");
                 myNav.classList.remove("fixed");
                 goUp.classList.add("display-none");
@@ -216,49 +230,19 @@
             }
         };
 
+
         function scrollToTop() {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
         }
+        //  end go-up and navbar show and hide when scroll script
 
-
-        var buttons = document.getElementsByClassName("addToCart");
-        for (let i = 0; i < buttons.length; i++) {
-            let button = buttons[i];
-            button.addEventListener("click", function () {
-                document.getElementsByClassName("counter")[0].innerHTML = parseInt(document.getElementsByClassName("counter")[0].innerHTML) + 1;
-                var cartList = document.getElementsByClassName("cart-list")[0];
-                cartList.classList.add("display-block");
-                cartList.classList.remove("display-none");
-                // var cartItem = document.createElement("div");
-                // cartItem.classList.add("cart-item");
-                // cartList.appendChild(cartItem);
-                
-            })
-        }
-
-        var Cart = document.getElementsByClassName("cart")[0];
-        Cart.addEventListener("click", function () {
-            var element = document.getElementsByClassName("cart-list")[0];
-            if (element.classList.contains("display-none")) {
-                element.classList.remove("display-none");
-                element.classList.add("display-block");
-            }
-            else {
-                element.classList.add("display-none");
-                element.classList.remove("display-block");
-            }
-        })
-
-
-
-
-
-
+        //  add to cart script
 
     </script>
+    <script src="cart.js"></script>
 
 </body>
 

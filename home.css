@@ -1,43 +1,36 @@
+html {
+    height: 100%;
+    background-color: rgba(243, 136, 5, 0.187);
+}
+
 div .banner {
     width: 100%;
     margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 30%);
+
 }
 
 /* .mySlides {display: block}
 
 /* Slideshow container */
 .slideshow-container {
-    max-width: 500px;
-    position: relative;
-    margin: auto;
+    width: 80%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin:auto;
+    background: #8281818a;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 30%);
 }
 
-/* Next & previous buttons */
-.prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
+.mySlides {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:15px;
+    gap:20px;
 }
 
-/* Position the "next button" to the right */
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-}
 
 /* The dots/bullets/indicators */
 .dot {
@@ -78,14 +71,14 @@ div .banner {
     justify-content: center;
     gap:25px;
     width: 80%;
-    background: #eeeeee;
+    background: #8281818a;
     box-shadow: 0 2px 4px rgb(0 0 0 / 30%);
     border-radius: 4px;
     padding: 20px;
     margin: 80px auto;
 } 
 
-.cake-container .card{
+.card{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -186,7 +179,7 @@ div .banner {
     color:#000000;
     width: 300px;
     height: 100%;
-    background-color: #fff;
+    background-color: rgba(243, 136, 5, 0.407);
     padding: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     z-index: 100;
@@ -214,8 +207,50 @@ div .banner {
     padding: 10px 0;
 }
 
+.cart-list .items .item .item-image{
+    width: 20%;
+}
+
 .cart-list .items .item .item-quantity{
     width: 10%;
+    text-align: center;
+}
+
+.cart-list .items .item .remove-items{
+    background: #fb8b29;
+    padding: 10px;
+    font-family: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cart-list .items .place-of-delivery{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 10px 5px;
+}
+
+.checkout{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout-btn{
+    width: 100%;
+    font-size: 18px;
+    background: #ff7700;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 
 
