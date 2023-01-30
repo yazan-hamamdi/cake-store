@@ -42,7 +42,15 @@ function createElementsInsideCart(button) {
     removeBtn.onclick = function () {
         deleteItem(removeBtn);
     };
+    var itemInfo = document.createElement("div");
+    itemInfo.classList.add("item-info");
+    var itemName = document.createElement("div");
+    itemName.classList.add("itemName");
+    itemName.style.display = "none";
+    itemName.innerHTML = button.parentElement.children[1].children[0].innerHTML;
+    itemInfo.appendChild(itemName);
     cartItem.appendChild(removeBtn);
+    cartItem.appendChild(itemInfo);
     cartItems.appendChild(cartItem);
     if (flag == 0) {
         flag++;
