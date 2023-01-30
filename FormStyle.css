@@ -11,10 +11,25 @@ body {
         font-family: montserrat, arial, verdana;
 }
 
+.title{
+    margin: 50px 25%;
+    font-size: 50px;
+    color:white;
+}
+
+.supTitile{
+    font-size: 30px;
+}
+
+.L:hover,.I:hover{
+    font-size: 70px;
+    color: #5B382A;
+}
+
     /*form styles*/
 #msform {
     width: 1000px;
-    margin: 50px auto;
+    margin: 60px auto;
     text-align: center;
     display: flex;
 }
@@ -61,7 +76,11 @@ body {
         background-color: #63E816;
         color: white;
         font-size: 20px;
+    }
 
+    .submit:hover{
+        box-shadow: 0 0 10px #63E816 ;
+        font-size: 25px;
     }
 
     .Twitter{
@@ -71,6 +90,11 @@ body {
         text-align: center;
     }
 
+    .Twitter:hover{
+        box-shadow: 0 0 10px #1da1f3 ;
+        font-size: 25px;
+    }
+
     .Facebook{
         background-color:#0b5aa7;
         color: white;
@@ -78,11 +102,21 @@ body {
         text-align: center;
     }
 
+    .Facebook:hover{
+        box-shadow: 0 0 10px #0b5aa7 ;
+        font-size: 25px;
+    }
+
     .Gplus{
         background-color: #dc4a38;
         color: white;
         font-size: 30px;
         text-align: center;
+    }
+
+    .Gplus:hover{
+        box-shadow: 0 0 10px #dc4a38 ;
+        font-size: 25px;
     }
 
     .bar{
@@ -101,5 +135,35 @@ body {
         background-color: #f2b787;
         padding: 5px;
     }
+
+.button {
+align-items: center;
+background-image: linear-gradient(144deg,#4f3226, #834e39 50%,#d47c59);
+border: 0;
+border-radius: 8px;
+box-shadow: rgba(251, 123, 4, 0.2) 0 15px 30px -5px;
+
+color: white;
+
+font-family: Phantomsans, sans-serif;
+font-size: 20px;
+line-height: 1em;
+padding: 19px 24px;
+text-decoration: none;
+
+cursor: pointer;
+}
+
+
+.button:hover {
+outline: 0;
+box-shadow: 0 0 10px #4f3226 ;
+        font-size: 25px;
+}
+
+a  {
+    text-decoration: none;
+    color: white;
+}
 
 
