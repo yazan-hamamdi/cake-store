@@ -60,7 +60,7 @@ $allCakes .= "</div>";
                 <div class="items">
 
                     <div class="total">
-                        total = <span class="total-result"></span>
+                        total = <span class="total-result">$0</span>
                     </div>
                     <input type="text" class="place-of-delivery" placeholder="Place of delivery" name="placeOfDelivery" required>
                     <div class="checkout">
