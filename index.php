@@ -212,8 +212,6 @@ $allCakes .= "</div>";
             });
         }
         //  end go-up and navbar show and hide when scroll script
-
-        //  add to cart script
     </script>
     <script src="cart.js"></script>
     <script src="checkout.js"></script>

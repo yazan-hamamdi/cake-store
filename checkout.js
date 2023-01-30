@@ -1,6 +1,5 @@
 function checkout() {
 
-
     var form = document.createElement("form");
     form.method = "post";
     form.action = "order.php";
@@ -16,6 +15,9 @@ function checkout() {
     itemWithQuantity.value = "";
     total.name = "total";
     total.value = parseInt((document.getElementsByClassName("total-result")[0]).innerHTML.replace('$', ''));
+    if (total.value == NaN) {
+        window.open("www.google.com");
+    }
     place.name = "place";
     place.value = placeOfDeliValue;
     form.appendChild(place);
@@ -29,8 +31,4 @@ function checkout() {
     form.appendChild(itemWithQuantity);
     document.body.appendChild(form);
     form.submit();
-    // class="items"
-
-    return false;
-
 }
