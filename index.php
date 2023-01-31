@@ -38,8 +38,8 @@ $allCakes .= "</div>";
     <title>Chocolate</title>
     <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@800&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/3dbf1904d7.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/home.css">
 </head>
 
 <body>
@@ -213,8 +213,8 @@ $allCakes .= "</div>";
         }
         //  end go-up and navbar show and hide when scroll script
     </script>
-    <script src="cart.js"></script>
-    <script src="checkout.js"></script>
+    <script src="/js/cart.js"></script>
+    <script src="/js/checkout.js"></script>
 
 </body>
 
