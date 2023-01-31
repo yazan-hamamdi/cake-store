@@ -1,8 +1,21 @@
 <?php
+session_start();
 include('configration.php');
+include 'result.php';
 $conn = mysqli_connect(servername, username, password, database);
 if (!$conn) {
     die("connection failed " . mysqli_connect_error());
+}
+if (!($_SESSION["email"]))
+    header("location: LoginForm.php?result=" . "Please Log in first");
+else {
+    $user_email = $_SESSION["email"];
+    $sql = "SELECT * FROM `users` WHERE `email` = '$user_email'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($result);
+    $user_id = $row[0];
+    $user_name = $row[1];
+    $is_admin = $row[4];
 }
 $sql = "SELECT * FROM `cakes`";
 $result = mysqli_query($conn, $sql);
@@ -14,7 +27,8 @@ if (mysqli_num_rows($result) > 0) {
         $id = $row["c_id"];
         $name = $row["c_name"];
         $price = $row["c_price"];
-        $photo =   base64_encode($row["c_photo"]);
+        // for encode the image from database
+        $photo = base64_encode($row["c_photo"]);
         $allCakes .= "<div class='card'>";
         $allCakes .= "<img src=' data:image/jpeg;base64, $photo' alt='cake' class='cake-img'>";
         $allCakes .= "<div class='cake-info'>";
@@ -38,8 +52,8 @@ $allCakes .= "</div>";
     <title>Chocolate</title>
     <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@800&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/3dbf1904d7.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/style/style.css">
-    <link rel="stylesheet" href="/style/home.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/home.css">
 </head>
 
 <body>
@@ -51,6 +65,11 @@ $allCakes .= "</div>";
             <input id="search-bar" name="search-bar" type="search" placeholder="Search flowers, cakes, gifts, etc.">
             <label for="search-bar" class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></label>
         </div>
+        <?php
+        if ($is_admin == 1) {
+            echo "<a href='ControlPanel.php' style='font-size:25px;' >GO TO CONTROL PANEL</a>";
+        }
+        ?>
         <span class="cart">
             <i class="fa-solid fa-cart-shopping"><span class="counter">0</span></i>
             <b>Cart</b>
@@ -213,8 +232,8 @@ $allCakes .= "</div>";
         }
         //  end go-up and navbar show and hide when scroll script
     </script>
-    <script src="/js/cart.js"></script>
-    <script src="/js/checkout.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/checkout.js"></script>
 
 </body>
 
