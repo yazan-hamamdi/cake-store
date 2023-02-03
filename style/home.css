@@ -252,9 +252,49 @@ div .banner {
     transition: 0.3s ease;
 }
 
+.account-details{
+    position: fixed;
+    top: 8%;
+    right:4%;
+    background-color: #c87e08;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 30%);
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    padding: 20px;
+}
 
+.account-details .user-name{
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
 
+.account-details .user-email{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
 
+.float-right{
+    float:right
+}
+
+.account-details .logout{
+    background: #f9a826;
+    width: 100%;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.account-details .logout:hover{
+    background: #ff8c00;
+}
 
 
 

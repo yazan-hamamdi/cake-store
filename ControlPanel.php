@@ -16,9 +16,11 @@ else {
     $user_id = $row[0];
     $user_name = $row[1];
     $is_admin = $row[4];
+    // to check if the user is admin or not
     if ($is_admin == 0)
         header("location: index.php?result=" . "you not authorized");
 
+    // To take information from the database and store it in a variable
     $sql1 = "SELECT * FROM `users`";
     $sql2 = "SELECT * FROM `cakes`";
     $sql3 = "SELECT * FROM `orders`";
@@ -100,26 +102,26 @@ else {
     <?php
     echo "<center><h1> Welcome: $user_name </h1>"
     ?>
-    <button class='btn' onclick='location.href = "LogOut.php"'>Logout</button></center>
+    <button class='btn' onclick='location.href = "LogOut.php"'>Logout</button>
+    <button class='btn' onclick='location.href = "index.php"'>Home Page</button>
+    </center>
 
     <div class="main-container">
-
         <div class="btn-container">
+            <!-- to choose what data to display -->
             <button class="btn" onclick="users()">Users</button>
             <button class="btn" onclick="cakes()">Cakes</button>
             <button class="btn" onclick="orders()">Orders</button>
         </div>
-
         <div class="table-container" id="users">
-
             <?php
+            // to display the users data
             echo $allUsers;
             ?>
             <div class="btn-container">
                 <button class="btn" onclick="addUser()">Add User</button>
                 <button class="btn" onclick="deleteUser()">Delete User</button>
             </div>
-
             <form method="post" class="addUserForm hidden-form" style="display:none" action="controlPanelValidation/addUser.php">
                 <input type="text" name="user_name" placeholder="user name" require>
                 <input type="email" name="email" placeholder="email" require>
@@ -137,6 +139,7 @@ else {
         <div class="table-container" id="cakes">
 
             <?php
+            // to display the cakes data
             echo $allCakes;
             ?>
 
@@ -161,6 +164,7 @@ else {
 
         <div class="table-container" id="orders">
             <?php
+            // to display the orders data
             echo $allOrders;
             ?>
             <div class="btn-container">

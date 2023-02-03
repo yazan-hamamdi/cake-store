@@ -16,8 +16,10 @@ else {
     $user_id = $row[0];
     $user_name = $row[1];
     $is_admin = $row[4];
-    if ($is_admin == 0)
+    if ($is_admin == 0) {
+        mysqli_close($conn);
         header("location: index.php?result=" . "you not authorized");
+    }
 }
 $flag = "";
 
@@ -45,7 +47,7 @@ if (isset($_POST['add_cake'])) {
         }
     }
 }
-
+mysqli_close($conn);
 header("Location: ../ControlPanel.php?result=$flag");
 
 ?>

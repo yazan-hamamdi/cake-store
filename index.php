@@ -6,12 +6,14 @@ $conn = mysqli_connect(servername, username, password, database);
 if (!$conn) {
     die("connection failed " . mysqli_connect_error());
 }
-if (!($_SESSION["email"]))
+if (!(isset($_SESSION["email"])))
     header("location: LoginForm.php?result=" . "Please Log in first");
 else {
     $user_email = $_SESSION["email"];
     $sql = "SELECT * FROM `users` WHERE `email` = '$user_email'";
     $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) == 0)
+        header("location: LoginForm.php?result=" . "Please Log in first");
     $row = mysqli_fetch_array($result);
     $user_id = $row[0];
     $user_name = $row[1];
@@ -65,11 +67,21 @@ $allCakes .= "</div>";
             <input id="search-bar" name="search-bar" type="search" placeholder="Search flowers, cakes, gifts, etc.">
             <label for="search-bar" class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></label>
         </div>
+
+
         <?php
         if ($is_admin == 1) {
-            echo "<a href='ControlPanel.php' style='font-size:25px;' >GO TO CONTROL PANEL</a>";
+            echo "
+            <a href='ControlPanel.php'>
+                <span class='admin'>
+                    <i class='fa-solid fa-lock'></i>
+                    <b>Admin</b>
+                </span>
+            </a>";
         }
         ?>
+
+
         <span class="cart">
             <i class="fa-solid fa-cart-shopping"><span class="counter">0</span></i>
             <b>Cart</b>
@@ -93,20 +105,45 @@ $allCakes .= "</div>";
             <b>Account</b>
         </span>
     </div>
-
     <!-- end nav -->
 
+    <!-- account menu -->
+    <div class="account-details display-none">
+        <table>
+            <tr>
+                <td>
+                    <span>User Name:</span>
+                </td>
+                <td>
+                    <span class="user-name"><?php echo $user_name; ?></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="float-right">
+                    <span>Email: </span>
+                </td>
+                <td>
+                    <span class="user-email"><?php echo $user_email; ?></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <button class="logout" onclick='location.href = "LogOut.php"'>Logout</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- end account menu -->
+
+    <!-- start banner  -->
     <div>
         <img src="image/Cake-banner.webp" class="banner">
     </div>
+    <!-- end banner -->
 
     <!-- this slideshow-container  -->
-
-
-
-
     <div class="slideshow-container ">
-
         <div class="mySlides fade ">
             <div class="card">
                 <img src="image/c1.webp ">
@@ -143,6 +180,8 @@ $allCakes .= "</div>";
             </div>
         </div>
     </div>
+    <!-- end slideshow-container -->
+
     <br>
 
     <div style="text-align:center">
@@ -231,6 +270,18 @@ $allCakes .= "</div>";
             });
         }
         //  end go-up and navbar show and hide when scroll script
+
+        //  account menu script
+        var account = document.getElementsByClassName("account")[0];
+        var accountDetails = document.getElementsByClassName("account-details")[0];
+
+        account.addEventListener("click", function() {
+            if (accountDetails.classList.contains("display-none"))
+                accountDetails.classList.remove("display-none");
+            else
+                accountDetails.classList.add("display-none");
+        });
+        //  end account menu script
     </script>
     <script src="js/cart.js"></script>
     <script src="js/checkout.js"></script>
@@ -238,3 +289,7 @@ $allCakes .= "</div>";
 </body>
 
 </html>
+
+<?php
+mysqli_close($conn);
+?>

@@ -49,9 +49,11 @@ session_start();
         if (mysqli_num_rows($result) > 0) {
             $_SESSION["email"] = $email;
             $flag =  "Login Successfully";
+            mysqli_close($conn);
             header("location:index.php?result=" . $flag);
         } else {
             $flag = "Email or Password is incorrect";
+            mysqli_close($conn);
             header("location:LoginForm.php?result=" . $flag);
         }
     }
@@ -60,3 +62,7 @@ session_start();
 </body>
 
 </html>
+
+<?php
+mysqli_close($conn);
+?>
