@@ -31,12 +31,21 @@ if (isset($_POST['delete_user'])) {
     if (mysqli_num_rows($resultCheck) == 0) {
         $flag = "user not found";
     } else {
-        $sql = "DELETE FROM users WHERE id = '$id'";
-        $result = mysqli_query($conn, $sql);
-        if ($result) {
-            $flag = "user deleted successfully";
+        while ($row = mysqli_fetch_array($resultCheck))
+            $is_admin = $row[4];
+        // to prevent deleting admin
+        if ($is_admin == 1) {
+            $flag = "you can\'t delete admin";
+            mysqli_close($conn);
+            header("Location: ../ControlPanel.php?result=$flag");
         } else {
-            $flag = "delete user failed";
+            $sql = "DELETE FROM users WHERE id = '$id'";
+            $result = mysqli_query($conn, $sql);
+            if ($result) {
+                $flag = "user deleted successfully";
+            } else {
+                $flag = "delete user failed";
+            }
         }
     }
 }

@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('configration.php');
-include 'result.php';
+include('result.php');
 $conn = mysqli_connect(servername, username, password, database);
 if (!$conn) {
     die("connection failed " . mysqli_connect_error());
